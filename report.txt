@@ -1,0 +1,139 @@
+"This is a report of my Git activities, for more details see the docx file attached on teams." 
+
+Microsoft Windows [Version 10.0.22631.3007]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\saron>cd git_reset_test
+
+C:\Users\saron\git_reset_test>git init
+Reinitialized existing Git repository in C:/Users/saron/git_reset_test/.git/
+
+C:\Users\saron\git_reset_test>git remote add origin https://github.com/Metaferia/git_reset_test_remote.git
+
+C:\Users\saron\git_reset_test>git add .
+
+C:\Users\saron\git_reset_test>git commit -m "Test message to commit"
+[detached HEAD 21b1a8e] Test message to commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ delete mode 100644 test2.txt
+
+C:\Users\saron\git_reset_test>git push -u origin master
+git credential-'cache store: -c: line 1: unexpected EOF while looking for matching `''
+git credential-'cache store: -c: line 1: unexpected EOF while looking for matching `''
+git credential-'manager store: -c: line 1: unexpected EOF while looking for matching `''
+git credential-'manager store: -c: line 1: unexpected EOF while looking for matching `''
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (7/7), 577 bytes | 288.00 KiB/s, done.
+Total 7 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/Metaferia/git_reset_test_remote.git
+ * [new branch]      master -> master
+branch 'master' set up to track 'origin/master'.
+
+C:\Users\saron\git_reset_test>git remote -v
+origin  https://github.com/Metaferia/git_reset_test_remote.git (fetch)
+origin  https://github.com/Metaferia/git_reset_test_remote.git (push)
+
+C:\Users\saron\git_reset_test>git fetch origin
+
+C:\Users\saron\git_reset_test>git pull origin master
+From https://github.com/Metaferia/git_reset_test_remote
+ * branch            master     -> FETCH_HEAD
+Merge made by the 'ort' strategy.
+ Git_rm_test          | 1 +
+ reset_lifecycle_file | 3 ++-
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+ create mode 100644 Git_rm_test
+
+C:\Users\saron\git_reset_test>git push origin master
+git credential-'cache store: -c: line 1: unexpected EOF while looking for matching `''
+git credential-'cache store: -c: line 1: unexpected EOF while looking for matching `''
+git credential-'manager store: -c: line 1: unexpected EOF while looking for matching `''
+git credential-'manager store: -c: line 1: unexpected EOF while looking for matching `''
+Everything up-to-date
+
+C:\Users\saron\git_reset_test>git branch new_branch
+
+C:\Users\saron\git_reset_test>git checkout new_branch
+Switched to branch 'new_branch'
+
+C:\Users\saron\git_reset_test>git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+C:\Users\saron\git_reset_test>git branch feature
+
+C:\Users\saron\git_reset_test>git checkout feature
+Switched to branch 'feature'
+
+C:\Users\saron\git_reset_test>git add Testfile.txt
+fatal: pathspec 'Testfile.txt' did not match any files
+
+C:\Users\saron\git_reset_test>git add example.txt
+fatal: pathspec 'example.txt' did not match any files
+
+C:\Users\saron\git_reset_test>git checkout feature
+Already on 'feature'
+
+C:\Users\saron\git_reset_test>echo "This is a new feature!" > feature_changes.txt
+
+C:\Users\saron\git_reset_test>git add feature_changes.txt
+
+C:\Users\saron\git_reset_test>git commit -m "Made changes in the feature branch"
+[feature 69dd68b] Made changes in the feature branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 feature_changes.txt
+
+C:\Users\saron\git_reset_test>git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+C:\Users\saron\git_reset_test>git merge feature
+Updating 9071333..69dd68b
+Fast-forward
+ feature_changes.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 feature_changes.txt
+
+C:\Users\saron\git_reset_test>git checkout new_branch
+Switched to branch 'new_branch'
+
+C:\Users\saron\git_reset_test>echo "This is a new change!" > new_branch.txt
+
+C:\Users\saron\git_reset_test>git add new_branch.txt
+
+C:\Users\saron\git_reset_test>git commit -m "Made changes in the new_branch branch"
+[new_branch a6483d8] Made changes in the new_branch branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 new_branch.txt
+
+C:\Users\saron\git_reset_test>git checkout master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+C:\Users\saron\git_reset_test>echo "This is a change in the master branch!" > master_changes.txt
+
+C:\Users\saron\git_reset_test>git add master_changes.txt
+
+C:\Users\saron\git_reset_test>git commit -m "Made changes in the master branch"
+[master 83364aa] Made changes in the master branch
+ 1 file changed, 1 insertion(+)
+ create mode 100644 master_changes.txt
+
+C:\Users\saron\git_reset_test>git checkout master
+Already on 'master'
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+
+C:\Users\saron\git_reset_test>git merge new_branch
+Merge made by the 'ort' strategy.
+ new_branch.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 new_branch.txt
+
+C:\Users\saron\git_reset_test>echo "This is a report of my Git activities, for more details see the docx file attached on teams." > report.txt
+
+C:\Users\saron\git_reset_test>
